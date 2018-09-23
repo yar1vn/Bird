@@ -4,7 +4,10 @@ import Foundation
 /// A drop event is when a Bird is initially put into the simulation.
 ///
 /// - note: Conforming to hashable is auto synthesized in latest swift and gives us Equatable as well.
+///
 public struct Event: Hashable {
+    typealias BirdID = String
+    typealias UserID = String
 
     /// The type of the event is one of START_RIDE, END_RIDE, DROP
     enum EventType: String, Hashable {
@@ -17,7 +20,7 @@ public struct Event: Hashable {
     let timestamp: Int
 
     /// The ID of the associated Bird vehicle, e.g. JK5T.
-    let birdID: String
+    let birdID: BirdID
 
     /// The type of the event.
     let type: EventType
@@ -26,12 +29,14 @@ public struct Event: Hashable {
     let coordinate: Point
 
     /// The ID of the associated user, if the event has one.
-    let userID: String?
+    let userID: UserID?
 }
 
 /// The coordinate of the location of where the event happened in the simulation.
 public struct Point: Hashable {
     let x, y: Double
+
+    static let zero = Point(x: 0, y: 0)
 }
 
 // MARK:- Parsing

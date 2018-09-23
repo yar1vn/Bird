@@ -10,6 +10,7 @@
 		097889B52157070400B3A91C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097889B42157070400B3A91C /* main.swift */; };
 		097889C221570E1A00B3A91C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097889C021570E1900B3A91C /* Model.swift */; };
 		097889C82157132800B3A91C /* events.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 097889BF21570E1900B3A91C /* events.txt */; };
+		097889CA2157511900B3A91C /* Model+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097889C92157511900B3A91C /* Model+Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,6 +32,7 @@
 		097889BF21570E1900B3A91C /* events.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = events.txt; sourceTree = "<group>"; };
 		097889C021570E1900B3A91C /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		097889C121570E1A00B3A91C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		097889C92157511900B3A91C /* Model+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+Utilities.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			children = (
 				097889B42157070400B3A91C /* main.swift */,
 				097889C021570E1900B3A91C /* Model.swift */,
+				097889C92157511900B3A91C /* Model+Utilities.swift */,
 				097889C321570E2400B3A91C /* Resources */,
 			);
 			path = Bird;
@@ -138,6 +141,7 @@
 			files = (
 				097889B52157070400B3A91C /* main.swift in Sources */,
 				097889C221570E1A00B3A91C /* Model.swift in Sources */,
+				097889CA2157511900B3A91C /* Model+Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
