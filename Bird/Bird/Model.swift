@@ -1,5 +1,12 @@
 import Foundation
 
+typealias Seconds = Int
+typealias Minutes = Int
+typealias Hours = Double
+typealias Cost = Double
+typealias Distance = Double
+typealias Speed = Double
+
 /// Bird events are events which happen in our system, e.g. when a ride is started or ended.
 /// A drop event is when a Bird is initially put into the simulation.
 ///
@@ -17,7 +24,7 @@ public struct Event: Hashable {
     }
 
     /// The time in seconds since the start of the simulation.
-    let timestamp: Int
+    let timestamp: Seconds
 
     /// The ID of the associated Bird vehicle, e.g. JK5T.
     let birdID: BirdID
@@ -28,7 +35,7 @@ public struct Event: Hashable {
     /// The coordinate of the location of where the event happened in the simulation.
     let coordinate: Point
 
-    /// The ID of the associated user, if the event has one.
+    /// The ID of the associated user, if the event has one. drop events don't have a userID
     let userID: UserID?
 }
 
@@ -37,6 +44,32 @@ public struct Point: Hashable {
     let x, y: Double
 
     static let zero = Point(x: 0, y: 0)
+}
+
+/// Ride is a pair of start ride and end ride events
+public struct Ride: Hashable {
+    let startEvent: Event
+    let endEvent: Event
+
+    /// Initialize a new ride from start and end events.
+    ///
+    ///  - parameters:
+    ///     - startEvent: The start event of the ride
+    ///     - endEvent: The end event of the ride
+    ///
+    /// - returns: Ride object if types are valid, bird IDs and user IDs are identical between events,
+    ///             and the end time is greater than start time. Otherwise return `nil`.
+    ///
+    init?(startEvent: Event, endEvent: Event) {
+        guard startEvent.type == .startRide, endEvent.type == .endRide,
+            startEvent.birdID == endEvent.birdID,
+            startEvent.userID == endEvent.userID,
+            startEvent.timestamp <= endEvent.timestamp
+            else { return nil }
+
+        self.startEvent = startEvent
+        self.endEvent = endEvent
+    }
 }
 
 // MARK:- Parsing
